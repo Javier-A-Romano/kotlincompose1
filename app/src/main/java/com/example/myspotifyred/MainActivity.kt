@@ -1,12 +1,10 @@
 package com.example.myspotifyred
 
+import android.icu.lang.UCharacter
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -22,12 +20,14 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme  {
                 // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
+                Surface(color = MaterialTheme.colors.background ) {
 
                     Column() {
+                        FirstScaffold()
                         Greeting("Android")
                         Shorlak123("Android")
                         Shorlakbutton()
+                        FloatButton123()
 
                     }
 
@@ -56,6 +56,7 @@ fun DefaultPreview() {
             Shorlak123("Android")
             Shorlakbutton()
             FloatButton123()
+            FirstScaffold()
         }
 
     }
@@ -66,11 +67,14 @@ fun Shorlakbutton() {
         onClick = { /* ... */ },
         // Uses ButtonDefaults.ContentPadding by default
         contentPadding = PaddingValues(
-            start = 20.dp,
+            start = 10.dp,
             top = 12.dp,
             end = 20.dp,
-            bottom = 12.dp
+            bottom = 12.dp,
+
+
         )
+
     ) {
         // Inner content including an icon and a text label
         Icon(
@@ -94,4 +98,19 @@ fun FloatButton123(){
         },
         text = { Text("Like") }
     )
+}
+@Composable
+fun FirstScaffold(){
+    Scaffold(
+        drawerContent = {
+            Text("Drawer title", modifier = Modifier.padding(16.dp))
+            Divider()
+            // Drawer items
+        },topBar = {
+            TopAppBar { /* Top app bar content */ }
+        }
+    ) {
+        // Screen content
+
+    }
 }
