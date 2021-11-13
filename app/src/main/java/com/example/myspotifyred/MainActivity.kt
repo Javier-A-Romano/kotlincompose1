@@ -13,9 +13,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.myspotifyred.ui.theme.MyspotifyredTheme
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
         super.onCreate(savedInstanceState)
         setContent {
             MaterialTheme  {
@@ -113,4 +117,10 @@ fun FirstScaffold(){
         // Screen content
 
     }
+}
+private fun getRetrofit():Retrofit{
+    return Retrofit.Builder()
+        .baseUrl("https://dog.ceo/api/breed/")
+        .addConverterFactory(GsonConverterFactory.create()).build()
+
 }
